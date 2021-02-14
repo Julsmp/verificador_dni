@@ -1,31 +1,78 @@
-/* ----- Función verificada ----- */
+/* ----- Declaro variables globales ----- */
 
-var resto = 0
-var user_letra_mayuscula = ""
+var resto = 0;
+var letra_dni = undefined;
+var numero_dni = undefined;
+var numeros="0123456789";
+var letras="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function nombre_funcion() {
+/* ----- Fin variables globales ----- */
 
-    /* Obtengo el DNI introducido */
-    let user_dni=document.Verificar_DNI.user_dni.value;
 
-    /* Verifico que el DNI introducido tenga 9 carácteres */
-    if (user_dni.length != 9) {
-        alert("El DNI introducido no tiene 9 carácteres")
-    } else {
-        let todas_letras = "ABCDEFGHIJKLMNOPQRSTVWXYZ"; /* string con abecedario */
-        let todos_numeros = "0123456789"; /* string con todos los números */
+function tiene_numeros(texto){
 
-        let user_letra = user_dni[8]; /* aparto el carácter 9 */
-        user_letra_mayuscula = user_letra.toUpperCase(); /* lo convierto a minusculas */
-        let user_numero = user_dni.substr(0,8); /* aparto los números del DNI*/
+   for(i=0; i<texto.length; i++){
+      if (numeros.indexOf(texto.charAt(i),0)!=-1){
+         return 1; /* El campo contiene números */
+      }
+   }
+   return 0; /* El campo no contiene números */
+}
 
-        console.log(user_letra_mayuscula);
-        console.log(user_numero);
-        
-        resto = user_numero % 23 ; /* Obtengo el resto de la división con 23 */
-        console.log("El resto es: " + resto); /* ----- Test IMPRIMIR RESTO ----- */
-        comprobar_letra();
+function tiene_letras(texto){
+    texto = texto.toUpperCase();
+    for(i=0; i<texto.length; i++){
+       if (letras.indexOf(texto.charAt(i),0)!=-1){
+          return 1; /* El campo contiene letras */
+       }
     }
+    return 0; /* El campo no contiene letras */
+}
+
+function validar_Campos() {
+
+    letra_dni = document.Verificar_DNI.letraintroducida.value;
+    numero_dni = document.Verificar_DNI.numerointroducido.value;
+
+    verificar_numero = tiene_letras(numero_dni);
+    verificar_letra = tiene_numeros(letra_dni);
+
+    if (verificar_numero == 1 ){
+        alert("No puedes introducir letras en la casilla númerica");
+        Reiniciar_Formulario();
+    } 
+    
+    else {
+        if (numero_dni.length != 8) {
+            alert("El número ha de tener 8 carácteres");
+            Reiniciar_Formulario();
+        } 
+        
+        else {
+            if (verificar_letra == 1 ){
+                alert("No puedes introducir números en la casilla de la letra");
+                Reiniciar_Formulario();
+            }
+            else{
+                if (letra_dni.length!=1){
+                    alert("Debes introducir almenos una letra");
+                    Reiniciar_Formulario();
+                }
+
+                else{
+                    calcular_resto();
+                }
+            }
+        }
+    }
+}
+
+function calcular_resto() {    
+    resto = numero_dni % 23 ; /* Obtengo el resto de la división con 23 */
+    console.log("El resto es: " + resto); /* ----- Test IMPRIMIR RESTO ----- */
+    comprobar_letra();
+    console.log(numero_dni);
+    console.log(letra_dni);
 }
 
 function comprobar_letra() {
@@ -121,12 +168,16 @@ function comprobar_letra() {
         var letra_resto = "E";
     } else { console.log("Ha habido un error")}
 
-    console.log("La letra qué corresponde al dni introducido es " + letra_resto + ".")
-    console.log("La letra introducida por el usuario es: " + user_letra_mayuscula)
+    console.log("La letra qué corresponde al dni introducido es " + letra_resto + ".");
+    console.log("La letra introducida por el usuario es: " + letra_dni);
 
-    if (user_letra_mayuscula == letra_resto){
-        alert("La letra introducida corresponde al número")
+    if (letra_dni == letra_resto){
+        alert("La letra introducida corresponde al número");
     } else {
-        alert("La letra introducida NO corresponde al número")
+        alert("La letra introducida NO corresponde al número");
     }
+}
+
+function Reiniciar_Formulario() {
+    document.getElementById("formulario").reset()
 }

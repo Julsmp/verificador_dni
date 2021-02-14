@@ -14,20 +14,25 @@
         <script src="script.js"></script>
         <h1>Verificar letra de NIF</h1>
 
-        <form name="Verificar_DNI">
+        <form id="formulario" name="Verificar_DNI">
 
             <!-- Introducir DNI -->
-            <label>Introduce un número y letra de DNI.<br>
-                A continuación verificaremos el DNI comprobando que la letra es correcta.<br>
-                <br><input type="text" name="user_dni" id="dni" value="" maxlength="9"/>
+            <p>Introduce un número y letra de DNI.<br>
+                A continuación verificaremos el DNI comprobando que la letra es correcta.</p>
+            <label>Introduce el <b>número</b> del DNI<br>
+                <br><input type="text" name="numero_introducido" id="numerointroducido" value="" required pattern="[0-9]{8}" maxlength="8"/>
+            </label><br><br>
+            <label>Introduce la <b>letra</b> del DNI<br>
+                <br><input type="text" name="letra_introducido" id="letraintroducida" value="" required pattern="[A-Za-z]{1}" maxlength="1"/>
             </label>
+            
             <!-- Introducir DNI FIN-->
 
             <!-- botones -->
             <br><br>
             <section>
-                <button type="submit" onclick="nombre_funcion()">Enviar Formulario</button> 
-                <button type="reset">Borrar Formulario</button><br>
+                <button type="submit" onclick="validar_Campos()">Verificar DNI</button> 
+                <button type="reset">Borrar</button><br>
             </section>
             <!-- botones end -->
 
