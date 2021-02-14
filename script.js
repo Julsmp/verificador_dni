@@ -36,8 +36,8 @@ function tiene_letras(texto){ /* Comprueba si tiene letras o carácteres alfanú
     return 0; /* El campo no contiene letras */
 }
 
-function validar_Campos() { /* Comprueba si la información introducida en cada campo es correcta y lanza alertas de error. 
-    Si todo es correcto, calcula la letra correcta. */
+function validar_Campos() { /* Comprueba si la información introducida en cada campo es válida, 
+    lanza alertas de error. Si todo es correcto, calcula la letra correcta. */
 
     letra_dni = document.Verificar_DNI.letraintroducida.value;
     numero_dni = document.Verificar_DNI.numerointroducido.value;
@@ -83,6 +83,7 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
 
 function calcular_resto() {  /* Calcula el resto del dni */  
     resto = numero_dni % 23 ;
+    console.log("El resto es:" + resto)
     comprobar_letra();
 }
 
@@ -197,6 +198,16 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 }
 
 /* --- FIN FUNCIONES PARA COMPROBAR LETRA --- */
+
+
+
+/* --- FUNCIONES ARRAY --- */
+
+var lista_letras = []
+var lista
+
+
+/* --- FIN FUNCIONES ARRAY --- */
 
 
 
