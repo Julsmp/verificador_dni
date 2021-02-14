@@ -1,17 +1,24 @@
-/* ----- Declaro variables globales ----- */
+/* ----- VARIABLES GLOBALES ----- */
 
 var resto = 0;
 var letra_dni = undefined;
 var numero_dni = undefined;
-var numeros="0123456789";
-var letras="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numeros2="0123456789!@$%&/()<>¨·?¿‚¡¨·"; /* cadena con numeros y carácteres alfanumericos */
+var numeros=numeros2+letras3 /* añado " a la cadena */
+var letras2="ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ!@$%&/()<>?¿‚¡¨·";
+var letras3='"' /* para añadir el carácter " */
+var letras=letras2+letras3 /* añado " a la cadena */
 
-/* ----- Fin variables globales ----- */
+
+/* ----- FIN VARIABLES GLOBALES ----- */
 
 
-function tiene_numeros(texto){
 
-   for(i=0; i<texto.length; i++){
+/* --- FUNCIONES PARA COMPROBAR CAMPOS --- */
+
+function tiene_numeros(texto){ /* Comprueba si tiene números o carácteres alfanúmericos */
+
+   for(i=0; i<texto.length; i++){ 
       if (numeros.indexOf(texto.charAt(i),0)!=-1){
          return 1; /* El campo contiene números */
       }
@@ -19,7 +26,7 @@ function tiene_numeros(texto){
    return 0; /* El campo no contiene números */
 }
 
-function tiene_letras(texto){
+function tiene_letras(texto){ /* Comprueba si tiene letras o carácteres alfanúmericos */
     texto = texto.toUpperCase();
     for(i=0; i<texto.length; i++){
        if (letras.indexOf(texto.charAt(i),0)!=-1){
@@ -29,7 +36,8 @@ function tiene_letras(texto){
     return 0; /* El campo no contiene letras */
 }
 
-function validar_Campos() {
+function validar_Campos() { /* Comprueba si la información introducida en cada campo es correcta y lanza alertas de error. 
+    Si todo es correcto, calcula la letra correcta. */
 
     letra_dni = document.Verificar_DNI.letraintroducida.value;
     numero_dni = document.Verificar_DNI.numerointroducido.value;
@@ -38,7 +46,7 @@ function validar_Campos() {
     verificar_letra = tiene_numeros(letra_dni);
 
     if (verificar_numero == 1 ){
-        alert("No puedes introducir letras en la casilla númerica");
+        alert("No puedes introducir letras o carácteres especiales en la casilla númerica");
         Reiniciar_Formulario();
     } 
     
@@ -50,7 +58,7 @@ function validar_Campos() {
         
         else {
             if (verificar_letra == 1 ){
-                alert("No puedes introducir números en la casilla de la letra");
+                alert("Debes añadir la letra en la segunda casilla");
                 Reiniciar_Formulario();
             }
             else{
@@ -67,117 +75,133 @@ function validar_Campos() {
     }
 }
 
-function calcular_resto() {    
-    resto = numero_dni % 23 ; /* Obtengo el resto de la división con 23 */
-    console.log("El resto es: " + resto); /* ----- Test IMPRIMIR RESTO ----- */
+/* --- FIN FUNCIONES PARA COMPROBAR CAMPOS --- */
+
+
+
+/* --- FUNCIONES PARA COMPROBAR LETRA --- */
+
+function calcular_resto() {  /* Calcula el resto del dni */  
+    resto = numero_dni % 23 ;
     comprobar_letra();
-    console.log(numero_dni);
-    console.log(letra_dni);
 }
 
-function comprobar_letra() {
+function comprobar_letra() { /* Según la relación entre números y letras, calcula la letra correcta y compara con la introducida. */
 
+    let letra_resto=""; 
+
+    /* Según el resto, lo relaciono con la letra correspondiente */
     if (resto == 0){
-        var letra_resto = "T";
+        letra_resto = "T";
     }
 
     else if (resto == 1){
-        var letra_resto = "R";
+        letra_resto = "R";
     }
     else if (resto == 2){
-        var letra_resto = "W";
+        letra_resto = "W";
     }
 
     else if (resto == 3){
-        var letra_resto = "A";
+        letra_resto = "A";
     }
 
     else if (resto == 4){
-        var letra_resto = "G";
+        letra_resto = "G";
     }
 
     else if (resto == 5){
-        var letra_resto = "M";
+        letra_resto = "M";
     }
 
     else if (resto == 6){
-        var letra_resto = "Y";
+        letra_resto = "Y";
     }
 
     else if (resto == 7){
-        var letra_resto = "F";
+        letra_resto = "F";
     }
 
     else if (resto == 8){
-        var letra_resto = "P";
+        letra_resto = "P";
     }
 
     else if (resto == 9){
-        var letra_resto = "D";
+        letra_resto = "D";
     }
 
     else if (resto == 10){
-        var letra_resto = "X";
+        letra_resto = "X";
     }
 
     else if (resto == 11){
-        var letra_resto = "B";
+        letra_resto = "B";
     }
 
     else if (resto == 12){
-        var letra_resto = "N";
+        letra_resto = "N";
     }
 
     else if (resto == 13){
-        var letra_resto = "J";
+        letra_resto = "J";
     }
 
     else if (resto == 14){
-        var letra_resto = "Z";
+        letra_resto = "Z";
     }
 
     else if (resto == 15){
-        var letra_resto = "S";
+        letra_resto = "S";
     }
 
     else if (resto == 16){
-        var letra_resto = "Q";
+        letra_resto = "Q";
     }
 
     else if (resto == 17){
-        var letra_resto = "W";
+        letra_resto = "W";
     }
 
     else if (resto == 18){
-        var letra_resto = "H";
+        letra_resto = "H";
     }
 
     else if (resto == 19){
-        var letra_resto = "L";
+        letra_resto = "L";
     }
 
     else if (resto == 20){
-        var letra_resto = "C";
+        letra_resto = "C";
     }
 
     else if (resto == 21){
-        var letra_resto = "K";
+        letra_resto = "K";
     }
 
     else if (resto == 22){
-        var letra_resto = "E";
-    } else { console.log("Ha habido un error: El resto no tiene sentido.")}
+        letra_resto = "E";
+    } else { 
+        console.log("Ha habido un error: El resto no tiene sentido.");
+    }
 
+    /* Imprimo las dos letras en consola - TEST */
     console.log("La letra qué corresponde al dni introducido es " + letra_resto + ".");
     console.log("La letra introducida por el usuario es: " + letra_dni);
 
+    /* Creo alerta informando si las dos letras coinciden */
     if (letra_dni.toUpperCase() == letra_resto){
-        alert("La letra introducida corresponde al número");
+        alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI es correcto.");
     } else {
-        alert("La letra introducida NO corresponde al número");
+        alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI NO es correcto.");
     }
 }
 
-function Reiniciar_Formulario() {
+/* --- FIN FUNCIONES PARA COMPROBAR LETRA --- */
+
+
+
+/* --- OTRAS FUNCIONES --- */
+
+function Reiniciar_Formulario() { /* Reinicia la info del formulario */
     document.getElementById("formulario").reset()
 }
