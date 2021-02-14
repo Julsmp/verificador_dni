@@ -166,12 +166,12 @@ function comprobar_letra() {
 
     else if (resto == 22){
         var letra_resto = "E";
-    } else { console.log("Ha habido un error")}
+    } else { console.log("Ha habido un error: El resto no tiene sentido.")}
 
     console.log("La letra qué corresponde al dni introducido es " + letra_resto + ".");
     console.log("La letra introducida por el usuario es: " + letra_dni);
 
-    if (letra_dni == letra_resto){
+    if (letra_dni.toUpperCase() == letra_resto){
         alert("La letra introducida corresponde al número");
     } else {
         alert("La letra introducida NO corresponde al número");
