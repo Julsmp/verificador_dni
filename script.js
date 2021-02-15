@@ -1,13 +1,24 @@
+/* ---------------------------------- */
+/* By: Julia Martínez                 */
+/* Curso: Desarrollo Full-Stack (GR2) */
+/* ---------------------------------- */
+/* ---------------------------------- */
+// Añadir información a Array
+// Falta: imprimir en pantalla la array, cambiar de color según resultado
+
+
+
 /* ----- VARIABLES GLOBALES ----- */
 
 var resto = 0;
 var letra_dni = undefined;
 var numero_dni = undefined;
-var numeros2="0123456789!@$%&/()<>¨·?¿‚¡¨·"; /* cadena con numeros y carácteres alfanumericos */
+var numeros2="0123456789"; /* cadena con numeros y carácteres alfanumericos */
 var numeros=numeros2+letras3 /* añado " a la cadena */
 var letras2="ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ!@$%&/()<>?¿‚¡¨·";
 var letras3='"' /* para añadir el carácter " */
 var letras=letras2+letras3 /* añado " a la cadena */
+var valoracion="" /* Definirá correcto/no correcto*/
 
 
 /* ----- FIN VARIABLES GLOBALES ----- */
@@ -18,9 +29,10 @@ var letras=letras2+letras3 /* añado " a la cadena */
 
 function tiene_numeros(texto){ /* Comprueba si tiene números o carácteres alfanúmericos */
 
-   for(i=0; i<texto.length; i++){ 
-      if (numeros.indexOf(texto.charAt(i),0)!=-1){
-         return 1; /* El campo contiene números */
+   for(i=0; i<texto.length; i++){
+        texto = texto.toUpperCase();
+        if (numeros.indexOf(texto.charAt(i),0)!=-1){
+            return 1; /* El campo contiene números */
       }
    }
    return 0; /* El campo no contiene números */
@@ -29,16 +41,15 @@ function tiene_numeros(texto){ /* Comprueba si tiene números o carácteres alfa
 function tiene_letras(texto){ /* Comprueba si tiene letras o carácteres alfanúmericos */
     texto = texto.toUpperCase();
     for(i=0; i<texto.length; i++){
-       if (letras.indexOf(texto.charAt(i),0)!=-1){
-          return 1; /* El campo contiene letras */
-       }
+        if (letras.indexOf(texto.charAt(i),0)!=-1){
+            return 1; /* El campo contiene letras */
+        }
     }
     return 0; /* El campo no contiene letras */
 }
 
 function validar_Campos() { /* Comprueba si la información introducida en cada campo es válida, 
     lanza alertas de error. Si todo es correcto, calcula la letra correcta. */
-
     letra_dni = document.Verificar_DNI.letraintroducida.value;
     numero_dni = document.Verificar_DNI.numerointroducido.value;
 
@@ -81,7 +92,7 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
 
 /* --- FUNCIONES PARA COMPROBAR LETRA --- */
 
-function calcular_resto() {  /* Calcula el resto del dni */  
+function calcular_resto() {  /* Calcula el resto del dni */
     resto = numero_dni % 23 ;
     console.log("El resto es:" + resto)
     comprobar_letra();
@@ -191,9 +202,15 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 
     /* Creo alerta informando si las dos letras coinciden */
     if (letra_dni.toUpperCase() == letra_resto){
+        añadir_letra_lista();
+        añadir_numeros_lista();
         alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI es correcto.");
+        valoracion="Correcto";
     } else {
+        añadir_letra_lista();
+        añadir_numeros_lista();
         alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI NO es correcto.");
+        valoracion="No correcto";
     }
 }
 
@@ -202,12 +219,34 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 
 
 /* --- FUNCIONES ARRAY --- */
+//IN PROGRESS....
+//..
+var lista_letras = ["test", 3]
+var lista_numeros = []
 
-var lista_letras = []
-var lista
+function añadir_letra_lista() {
+    let letra_mayus = letra_dni.toUpperCase;
+    console.log(letra_mayus);
+    lista_letras.push(letra_mayus);
+    console.log(lista_letras);
+}
 
+function añadir_numeros_lista() {
+    console.log(numero_dni);
+    lista_numeros.push(numero_dni);
+    console.log(lista_numeros);
+}
 
 /* --- FIN FUNCIONES ARRAY --- */
+
+
+/* --- FUNCIONES IMPRIMIR EN PANTALLA --- */
+//..
+//IN PROGRESS....
+//..
+
+
+/* --- FIN FUNCIONES IMPRIMIR EN PANTALLA --- */
 
 
 
