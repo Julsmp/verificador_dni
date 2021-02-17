@@ -214,6 +214,9 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
         valoracion="No correcto";
     }
 
+    /*muestro la sección oculta donde imprimiré*/
+    document.getElementById("Seccion_resultados").style.display="block";
+
     /*Llamo a la función que imprimirá en pantalla*/
     ImprimirResultado()
 }
@@ -251,16 +254,17 @@ function añadir_numeros_lista() {
 
 function ImprimirResultado(){
 
-    /*muestro la sección oculta donde imprimiré*/
-    document.getElementById("Seccion_resultados").style.display="block";
-
     /*Añado contenido*/
     var texto=document.getElementById("Resultados")
     if (valoracion="Correcto"){
         texto.innerHTML="El DNI " + numero_dni + letra_dni + " es correcto";
         console.log(texto)
     }
-    
+
+    else{
+        texto.innerHTML="El DNI " + numero_dni + letra_dni + " NO es correcto";
+        console.log(texto)
+    }
 }
 
 
