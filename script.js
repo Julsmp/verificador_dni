@@ -19,6 +19,7 @@ var letras2="ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ!@$%&/()<>?¿‚¡¨·";
 var letras3='"' /* para añadir el carácter " */
 var letras=letras2+letras3 /* añado " a la cadena */
 var valoracion="" /* Definirá correcto/no correcto*/
+var contador=0;
 
 
 /* ----- FIN VARIABLES GLOBALES ----- */
@@ -50,8 +51,12 @@ function tiene_letras(texto){ /* Comprueba si tiene letras o carácteres alfanú
 
 function validar_Campos() { /* Comprueba si la información introducida en cada campo es válida, 
     lanza alertas de error. Si todo es correcto, calcula la letra correcta. */
+
     letra_dni = document.Verificar_DNI.letraintroducida.value;
     numero_dni = document.Verificar_DNI.numerointroducido.value;
+
+    contador++
+    console.log("Contador: " + contador)
 
     verificar_numero = tiene_letras(numero_dni);
     verificar_letra = tiene_numeros(letra_dni);
@@ -193,25 +198,24 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
     else if (resto == 22){
         letra_resto = "E";
     } else { 
-        console.log("Ha habido un error: El resto no tiene sentido.");
+        alert("Ha habido un error: El resto no tiene sentido.");
     }
-
-    /* Imprimo las dos letras en consola - TEST */
-    console.log("La letra qué corresponde al dni introducido es " + letra_resto + ".");
-    console.log("La letra introducida por el usuario es: " + letra_dni);
 
     /* Creo alerta informando si las dos letras coinciden */
     if (letra_dni.toUpperCase() == letra_resto){
         añadir_letra_lista();
         añadir_numeros_lista();
-        alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI es correcto.");
+        alert("La letra qué corresponde al DNI introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni.toUpperCase() + "\nPor tanto, el DNI es correcto.");
         valoracion="Correcto";
     } else {
         añadir_letra_lista();
         añadir_numeros_lista();
-        alert("La letra qué corresponde al dni introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni + "\nPor tanto, el DNI NO es correcto.");
+        alert("La letra qué corresponde al DNI introducido es " + letra_resto + ". \nLa letra introducida por el usuario es: " + letra_dni.toUpperCase() + "\nPor tanto, el DNI NO es correcto.");
         valoracion="No correcto";
     }
+
+    /*Llamo a la función que imprimirá en pantalla*/
+    ImprimirResultado()
 }
 
 /* --- FIN FUNCIONES PARA COMPROBAR LETRA --- */
@@ -225,8 +229,8 @@ var lista_letras = ["test", 3]
 var lista_numeros = []
 
 function añadir_letra_lista() {
-    let letra_mayus = letra_dni.toUpperCase;
-    console.log(letra_mayus);
+    let letra_mayus = letra_dni.toUpperCase();
+    console.log(letra_dni);
     lista_letras.push(letra_mayus);
     console.log(lista_letras);
 }
@@ -244,6 +248,20 @@ function añadir_numeros_lista() {
 //..
 //IN PROGRESS....
 //..
+
+function ImprimirResultado(){
+
+    /*muestro la sección oculta donde imprimiré*/
+    document.getElementById("Seccion_resultados").style.display="block";
+
+    /*Añado contenido*/
+    var texto=document.getElementById("Resultados")
+    if (valoracion="Correcto"){
+        texto.innerHTML="El DNI " + numero_dni + letra_dni + " es correcto";
+        console.log(texto)
+    }
+    
+}
 
 
 /* --- FIN FUNCIONES IMPRIMIR EN PANTALLA --- */
