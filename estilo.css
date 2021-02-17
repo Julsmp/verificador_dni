@@ -18,7 +18,7 @@ html {
 }
 
 #Seccion_resultados{
-    /*display:none;*/
+    display:none;
     margin-top: 2%;
     border-color: black;
     border: solid;
