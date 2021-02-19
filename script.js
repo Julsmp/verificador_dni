@@ -248,9 +248,6 @@ function añadir_numeros_lista() {
 
 
 /* --- FUNCIONES IMPRIMIR EN PANTALLA --- */
-//..
-//IN PROGRESS....
-//..
 
 function ImprimirResultado(){
 
@@ -258,18 +255,17 @@ function ImprimirResultado(){
     var texto=document.getElementById("Resultados")
     if (valoracion="Correcto"){
         texto.innerHTML="El DNI " + numero_dni + letra_dni + " es correcto";
-        console.log(texto)
+        console.log(texto);
     }
 
     else{
         texto.innerHTML="El DNI " + numero_dni + letra_dni + " NO es correcto";
-        console.log(texto)
+        console.log(texto);
+        $('formulario').submit(false);
     }
 }
 
-
 /* --- FIN FUNCIONES IMPRIMIR EN PANTALLA --- */
-
 
 
 /* --- OTRAS FUNCIONES --- */
