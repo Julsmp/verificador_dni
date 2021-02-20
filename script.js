@@ -20,6 +20,7 @@ var letras3='"' /* para añadir el carácter " */
 var letras=letras2+letras3 /* añado " a la cadena */
 var valoracion="" /* Definirá correcto/no correcto*/
 var contador=0;
+var letra_resto=""; 
 
 
 /* ----- FIN VARIABLES GLOBALES ----- */
@@ -108,8 +109,6 @@ function calcular_resto() {  /* Calcula el resto del dni */
 }
 
 function comprobar_letra() { /* Según la relación entre números y letras, calcula la letra correcta y compara con la introducida. */
-
-    let letra_resto=""; 
 
     /* Según el resto, lo relaciono con la letra correspondiente */
     if (resto == 0){
@@ -232,7 +231,7 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 /* --- FUNCIONES ARRAY --- */
 //IN PROGRESS....
 //..
-var lista_letras = ["test", 3]
+var lista_letras = []
 var lista_numeros = []
 
 function añadir_letra_lista() {
@@ -257,18 +256,28 @@ function ImprimirResultado(){
 
     /*Añado contenido*/
 
-    var texto=document.getElementById("Resultados")
+    let texto=document.getElementById("Resultados")
+    let letra_resultado=document.getElementById("letra_resultado")
+
+    if (valoracion=="Correcto"){
+        letra_resultado.style.color = "#007a08";
+        letra_resultado.innerHTML=letra_resto.toUpperCase();
+    }
+
+    else{
+        letra_resultado.style.fontSize = "larger"
+        letra_resultado.style.color = "#ff0000";
+        letra_resultado.innerHTML=letra_resto.toUpperCase();    
+    }
 
     if (valoracion=="Correcto"){
         texto.style.color = "#007a08";
         texto.innerHTML="El DNI " + numero_dni + letra_dni.toUpperCase() + " es correcto";
-        console.log(texto);
     }
 
     else{
         texto.style.color = "#ff0000";
         texto.innerHTML="El DNI " + numero_dni + letra_dni.toUpperCase() + " NO es correcto";
-        console.log(texto);
     }
 }
 
