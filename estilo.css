@@ -19,6 +19,7 @@ html {
 
 #Seccion_resultados{
     display:none;
+    padding-top: 15px;
     margin-top: 2%;
     border-color: black;
     border: solid;
