@@ -20,7 +20,7 @@
             <p>Introduce un número y letra de DNI.<br>
                 A continuación verificaremos el DNI comprobando que la letra es correcta.</p>
             <label>Introduce el <b>número</b> del DNI<br>
-                <br><input type="text" name="numero_introducido" id="numerointroducido" value="" required pattern="[0-9]{8}" maxlength="8" placeholder="Ej. 98546734"/>
+                <br><input type="text" selected name="numero_introducido" id="numerointroducido" value="" required pattern="[0-9]{8}" maxlength="8" placeholder="Ej. 98546734"/>
             </label><br><br>
             <label>Introduce la <b>letra</b> del DNI<br>
                 <br><input type="text" name="letra_introducido" id="letraintroducida" value="" required pattern="[A-Za-z]{1}" maxlength="1" placeholder="Ej. J"/>
@@ -32,13 +32,15 @@
             <br><br>
             <section>
                 <button type="submit" onclick="validar_Campos()" id="envio">Verificar DNI</button> 
-                <button type="reset">Borrar</button><br>
+                <button type="reset" onclick="Reiniciar_Formulario()">Borrar</button><br>
             </section>
             <!-- botones end -->
         </form>
 
         <section id="Seccion_resultados">
-            <div id="Resultados">
+            <div>
+                <h1 id="letra_resultado"></h1>
+                <h3 id="Resultados"></h3>
             </div>
         </section>
         
