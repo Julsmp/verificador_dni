@@ -89,6 +89,10 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
             }
         }
     }
+
+    document.getElementById("formulario").addEventListener("click", function(event){
+        event.preventDefault()
+      });
 }
 
 /* --- FIN FUNCIONES PARA COMPROBAR CAMPOS --- */
