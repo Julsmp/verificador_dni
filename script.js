@@ -256,16 +256,19 @@ function añadir_numeros_lista() {
 function ImprimirResultado(){
 
     /*Añado contenido*/
+
     var texto=document.getElementById("Resultados")
-    if (valoracion="Correcto"){
-        texto.innerHTML="El DNI " + numero_dni + letra_dni + " es correcto";
+
+    if (valoracion=="Correcto"){
+        texto.style.color = "#007a08";
+        texto.innerHTML="El DNI " + numero_dni + letra_dni.toUpperCase() + " es correcto";
         console.log(texto);
     }
 
     else{
-        texto.innerHTML="El DNI " + numero_dni + letra_dni + " NO es correcto";
+        texto.style.color = "#ff0000";
+        texto.innerHTML="El DNI " + numero_dni + letra_dni.toUpperCase() + " NO es correcto";
         console.log(texto);
-        $('formulario').submit(false);
     }
 }
 
