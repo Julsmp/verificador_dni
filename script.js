@@ -3,8 +3,6 @@
 /* Curso: Desarrollo Full-Stack (GR2) */
 /* ---------------------------------- */
 /* ---------------------------------- */
-// Añadir información a Array
-// Falta: imprimir en pantalla la array, cambiar de color según resultado
 
 
 
@@ -265,7 +263,7 @@ function ImprimirResultado(){
     }
 
     else{
-        letra_resultado.style.fontSize = "larger"
+        letra_resultado.style.fontSize = "43px"
         letra_resultado.style.color = "#ff0000";
         letra_resultado.innerHTML=letra_resto.toUpperCase();    
     }
