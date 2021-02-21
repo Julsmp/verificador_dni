@@ -294,18 +294,30 @@ function ImprimirLISTA(){
 
     let texto_derecha=document.getElementById(id="elem1");
 
+
     if (valoracion=="Correcto"){
         texto_derecha.style.color = "#007a08";
-        texto_derecha.innerHTML= numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✓";
+        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✓";
+        texto_derecha.innerHTML= nuevo_texto;
     }
 
     else{
         texto_derecha.style.color = "#ff0000";
-        texto_derecha.innerHTML= numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✘";
+        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✘";
+        texto_derecha.innerHTML = nuevo_texto;
     }
 
-    nuevaLinea();
-    contador++;
+    if (contador >= 1){
+        console.log(contador);
+        contador++;
+        nuevaLinea();
+    }
+
+    else {
+        console.log(contador);
+        contador++;
+    }
+
 }
 
 function nuevaLinea() {
@@ -313,7 +325,7 @@ function nuevaLinea() {
     // Crear nodo de tipo Element
     var elemento = document.createElement("p");
     // Crear nodo de tipo Text
-    var contenidolinea = document.createTextNode("Nueva linea test");
+    var contenidolinea = document.createTextNode(nuevo_texto);
     // Añadir el nodo contenido como hijo del nodo titulo
     elemento.appendChild(contenidolinea);
 
