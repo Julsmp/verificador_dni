@@ -12,19 +12,21 @@
 
     <body>
         <script src="script.js"></script>
-        <h1>Verificar letra de NIF</h1>
+        <h1>Verificador de letra <u>NIF</u></h1>
 
         <form id="formulario" name="Verificar_DNI">
 
             <!-- Introducir DNI -->
             <p>Introduce un número y letra de DNI.<br>
                 A continuación verificaremos el DNI comprobando que la letra es correcta.</p>
-            <label>Introduce el <b>número</b> del DNI<br>
-                <br><input type="text" selected name="numero_introducido" id="numerointroducido" value="" required pattern="[0-9]{8}" maxlength="8" placeholder="Ej. 98546734"/>
-            </label><br><br>
-            <label>Introduce la <b>letra</b> del DNI<br>
-                <br><input type="text" name="letra_introducido" id="letraintroducida" value="" required pattern="[A-Za-z]{1}" maxlength="1" placeholder="Ej. J"/>
-            </label>
+            <div class="container">
+                <label>Introduce el <b>número</b> del DNI<br>
+                    <br><input type="text" selected name="numero_introducido" id="numerointroducido" value="" required pattern="[0-9]{8}" maxlength="8" placeholder="Ej. 98546734"/>
+                </label><br><br>
+                <label>Introduce la <b>letra</b> del DNI<br>
+                    <br><input type="text" name="letra_introducido" id="letraintroducida" value="" required pattern="[A-Za-z]{1}" maxlength="1" placeholder="Ej. J"/>
+                </label>
+            </div>
             
             <!-- Introducir DNI FIN-->
 
