@@ -13,17 +13,7 @@ html {
     font-weight: 300;
 }
 
-#Seccion_resultados{ /* Section Oculta donde muestro el resultado */
-
-    display:none; 
-
-    border: 1px solid #ddd;
-    background-color: #fff;
-    padding: 20px 15px 20px 20px;
-    border-radius: 4px;
-    margin-top: .4rem;
-}
-
+/*Caja del formulario*/
 form {
     border: 1px solid #ddd;
     background-color: #fff;
@@ -33,10 +23,44 @@ form {
     padding-top: 15px;
 }
 
+
 .container { /* Div contenedor con los dos inputs */
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+/*Parte inferior*/
+
+#inferior {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#seccion_lista {
+    display:none;
+    flex-grow: 1;
+
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px 15px 20px 20px;
+    border-radius: 4px;
+    margin-top: .4rem;
+    text-align: left;
+}
+
+
+#Seccion_resultados{ /* Section Oculta donde muestro el resultado */
+    display:none;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px 15px 20px 20px;
+    border-radius: 4px;
+    margin-top: .4rem;
+
+    flex-grow: 3;
 }
 
 /* Elementos */
@@ -52,14 +76,14 @@ input[type="text"]{
     width: 90%;
     height: 32px;
     border-radius: 8px;
-    border: 1px solid #979797;
+    border: 2px solid #979797;
     background-color: #ffffff;
     font-size: 15px;
     padding: 1px 1px 1px 12px;
 }
 
 input[type="text"]:hover{
-    border: 2px solid #bdbdbd;
+    border: 2px dashed #bdbdbd;
 }
 
 button {
