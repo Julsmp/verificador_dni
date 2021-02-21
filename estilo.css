@@ -7,7 +7,7 @@ html {
     /*Fuente*/
     text-align: center;
     font-family: 'Montserrat';
-    font-size: 18px;
+    font-size: 15px;
     color: #383838;
     line-height: 1.5;
     font-weight: 300;
@@ -49,12 +49,17 @@ label {
 
 
 input[type="text"]{
-    width: 98%;
+    width: 90%;
     height: 32px;
     border-radius: 8px;
     border: 1px solid #979797;
     background-color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
+    padding: 1px 1px 1px 12px;
+}
+
+input[type="text"]:hover{
+    border: 2px solid #bdbdbd;
 }
 
 button {
@@ -66,10 +71,10 @@ button {
     padding: .375rem .75rem;
     border-radius: .25rem;
     margin: 0px 1em 0em 1em;
-    width: 160px;
+    width: 130px;
 
     /*Texto*/
-    font-size: .9375rem;
+    font-size: 15px;
     font-family: 'Montserrat';
     font-weight: 400;
     color: #ffffff;
@@ -77,8 +82,12 @@ button {
     line-height: 1.5;
 }
 
+button:hover{
+    background-color:#37d4ff;
+}
+
 h1 {
-    font-size: 35pt;
+    font-size: 42px;
     color: #000;
     text-align: center;
     padding: 18px 0 18px 0;
