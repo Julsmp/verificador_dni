@@ -313,7 +313,7 @@ function nuevaLinea() {
     // Crear nodo de tipo Element
     var elemento = document.createElement("p");
     // Crear nodo de tipo Text
-    var contenidolinea = document.createTextNode("¡Hola Mundo!");
+    var contenidolinea = document.createTextNode("Nueva linea test");
     // Añadir el nodo contenido como hijo del nodo titulo
     elemento.appendChild(contenidolinea);
 
