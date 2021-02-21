@@ -54,9 +54,6 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
     letra_dni = document.Verificar_DNI.letraintroducida.value;
     numero_dni = document.Verificar_DNI.numerointroducido.value;
 
-    contador++
-    console.log("Contador: " + contador)
-
     verificar_numero = tiene_letras(numero_dni);
     verificar_letra = tiene_numeros(letra_dni);
 
@@ -89,9 +86,6 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
         }
     }
 
-    document.getElementById("formulario").addEventListener("click", function(event){
-        event.preventDefault()
-      });
 }
 
 /* --- FIN FUNCIONES PARA COMPROBAR CAMPOS --- */
@@ -217,9 +211,10 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 
     /*muestro la sección oculta donde imprimiré*/
     document.getElementById("Seccion_resultados").style.display="block";
+    document.getElementById("seccion_lista").style.display="block";
 
     /*Llamo a la función que imprimirá en pantalla*/
-    ImprimirResultado()
+    ImprimirResultado();
 }
 
 /* --- FIN FUNCIONES PARA COMPROBAR LETRA --- */
@@ -248,7 +243,7 @@ function añadir_numeros_lista() {
 /* --- FIN FUNCIONES ARRAY --- */
 
 
-/* --- FUNCIONES IMPRIMIR EN PANTALLA --- */
+/* --- FUNCIONES IMPRIMIR EN PRIMERA SECCIÓN --- */
 
 function ImprimirResultado(){
 
@@ -277,9 +272,56 @@ function ImprimirResultado(){
         texto.style.color = "#ff0000";
         texto.innerHTML="El DNI " + numero_dni + letra_dni.toUpperCase() + " NO es correcto";
     }
+
+    document.getElementById("formulario").addEventListener("click", function(event){
+        event.preventDefault();
+    })
+
+    ImprimirLISTA();
 }
 
-/* --- FIN FUNCIONES IMPRIMIR EN PANTALLA --- */
+/* --- FIN FUNCIONES IMPRIMIR EN PRIMERA SECCIÓN --- */
+
+
+
+/* --- FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
+
+function ImprimirLISTA(){
+
+    /*Añado contenido*/
+
+    let numeracion = contador+1; /* Para numerar los dnis introducidos */
+
+    let texto_derecha=document.getElementById(id="elem1");
+
+    if (valoracion=="Correcto"){
+        texto_derecha.style.color = "#007a08";
+        texto_derecha.innerHTML= numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✓";
+    }
+
+    else{
+        texto_derecha.style.color = "#ff0000";
+        texto_derecha.innerHTML= numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✘";
+    }
+
+    nuevaLinea();
+    contador++;
+}
+
+function nuevaLinea() {
+
+    // Crear nodo de tipo Element
+    var elemento = document.createElement("p");
+    // Crear nodo de tipo Text
+    var contenidolinea = document.createTextNode("¡Hola Mundo!");
+    // Añadir el nodo contenido como hijo del nodo titulo
+    elemento.appendChild(contenidolinea);
+
+    // Añadir el nodo titulo como hijo del head
+    elem1.appendChild(elemento);
+}
+
+/* --- FIN FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
 
 
 /* --- OTRAS FUNCIONES --- */
