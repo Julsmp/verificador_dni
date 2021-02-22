@@ -44,6 +44,7 @@ form {
     flex-grow: 1;
     overflow: scroll;
 
+    height: 200px;
     border: 1px solid #ddd;
     background-color: #fff;
     padding: 20px 15px 20px 20px;
@@ -61,7 +62,7 @@ form {
     border-radius: 4px;
     margin-top: .4rem;
 
-    flex-grow: 3;
+    flex-grow: 4;
 }
 
 /* Elementos */
