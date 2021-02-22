@@ -286,25 +286,33 @@ function ImprimirResultado(){
 
 /* --- FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
 
+var nuevo_texto = ""
+var texto_total = ""
+
 function ImprimirLISTA(){
 
     /*Añado contenido*/
 
     let numeracion = contador+1; /* Para numerar los dnis introducidos */
 
-    let texto_derecha=document.getElementById(id="elem1");
+    let texto_derecha=document.getElementById(id="elem1"); /*DIV*/
+
+    console.log("Texto_derecha es:"+'string:',texto_derecha); /*DIV*/
+    console.log("El nuevo_texto es:" + 'string:',nuevo_texto);
+
+        texto_total = nuevo_texto + texto_total;
+        console.log("El texto_total es:" + texto_total);
+        console.log("El nuevo_texto es:" + nuevo_texto);
 
 
     if (valoracion=="Correcto"){
-        texto_derecha.style.color = "#007a08";
-        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✓";
-        texto_derecha.innerHTML= nuevo_texto;
+        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + "✓\n";
+        texto_derecha.innerHTML= nuevo_texto+"\n";
     }
 
     else{
-        texto_derecha.style.color = "#ff0000";
-        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + " ✘";
-        texto_derecha.innerHTML = nuevo_texto;
+        nuevo_texto = numeracion + ". " + lista_numeros[contador]+ lista_letras[contador] + "✘\n";
+        texto_derecha.innerHTML = nuevo_texto+"\n";
     }
 
     if (contador >= 1){
@@ -322,16 +330,14 @@ function ImprimirLISTA(){
 
 function nuevaLinea() {
 
-    // Crear nodo de tipo Element
-    var elemento = document.createElement("p");
-    // Crear nodo de tipo Text
-    var contenidolinea = document.createTextNode(nuevo_texto);
-    // Añadir el nodo contenido como hijo del nodo titulo
-    elemento.appendChild(contenidolinea);
+    var elemento = document.createElement("p"); /*Creamos el párrafo*/
+    var texto = document.createTextNode(texto_total); /*Añadimos el texto del párrafo*/
+    elemento.appendChild(texto);
+  
+    var lista = document.getElementById("elem1");
+    lista.appendChild(elemento);
 
-    // Añadir el nodo titulo como hijo del head
-    elem1.appendChild(elemento);
-}
+  }
 
 /* --- FIN FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
 
