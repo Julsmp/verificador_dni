@@ -300,42 +300,46 @@ function ImprimirLISTA(){
     console.log("Texto_derecha es:"+'string:',texto_derecha); /*DIV*/
     console.log("El nuevo_texto es:" + 'string:',nuevo_texto);
 
-        texto_total = nuevo_texto + texto_total;
+        texto_total =  nuevo_texto + "" + texto_total;
         console.log("El texto_total es:" + texto_total);
         console.log("El nuevo_texto es:" + nuevo_texto);
 
 
     if (valoracion=="Correcto"){
-        nuevo_texto = numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + "✓\n";
-        texto_derecha.innerHTML= nuevo_texto+"\n";
+        nuevo_texto = "<p>"+numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + "✓"+ "</p>";
+        texto_derecha.innerHTML= nuevo_texto;
     }
 
     else{
-        nuevo_texto = numeracion + ". " + lista_numeros[contador]+ lista_letras[contador] + "✘\n";
-        texto_derecha.innerHTML = nuevo_texto+"\n";
+        nuevo_texto =  "<p>"+numeracion + ". " + lista_numeros[contador]+ lista_letras[contador] + "✘"+ "</p>";
+        texto_derecha.innerHTML =nuevo_texto;
     }
 
     if (contador >= 1){
         console.log(contador);
         contador++;
-        nuevaLinea();
     }
 
     else {
         console.log(contador);
         contador++;
     }
-
+    nuevaLinea();
 }
 
 function nuevaLinea() {
 
     var elemento = document.createElement("p"); /*Creamos el párrafo*/
-    var texto = document.createTextNode(texto_total); /*Añadimos el texto del párrafo*/
+    var texto = document.createTextNode(" "); /*Añadimos el texto del párrafo*/
     elemento.appendChild(texto);
   
     var lista = document.getElementById("elem1");
     lista.appendChild(elemento);
+
+    var nuevoelemento = texto_total;
+    lista.innerHTML = lista.innerHTML + nuevoelemento;
+    console.log("El lista es:" + lista);
+    console.log("El nuevoelemento es:" + nuevoelemento);
 
   }
 
