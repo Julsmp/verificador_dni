@@ -40,7 +40,7 @@ form {
 }
 
 #seccion_lista {
-    display:none;
+    /*display:none;*/
     flex-grow: 1;
     overflow: scroll;
 
@@ -55,7 +55,7 @@ form {
 
 
 #Seccion_resultados{ /* Section Oculta donde muestro el resultado */
-    display:none;
+    /*display:none;*/
     border: 1px solid #ddd;
     background-color: #fff;
     padding: 20px 15px 20px 20px;
@@ -122,4 +122,24 @@ h1 {
 
 u {
     color: #00c3f8
+}
+
+
+/* Ajustes responsives 600px */
+@media screen and (max-width: 600px) {
+    .container {
+      display: block;
+    }
+
+    button {
+        margin-bottom: 6px;!important
+    }
+}
+
+/* Ajustes responsives 600px */
+@media screen and (max-width: 460px) {
+    #inferior {
+        display: block;
+
+    }
 }
