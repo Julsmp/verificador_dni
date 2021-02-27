@@ -33,7 +33,6 @@ form {
 /*Parte inferior*/
 
 #inferior {
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -126,7 +125,7 @@ u {
 
 
 /* Ajustes responsives 600px */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
     .container {
       display: block;
     }
@@ -134,12 +133,17 @@ u {
     button {
         margin-bottom: 6px;!important
     }
+
+    input[type="text"] {
+        max-width: 35%;
+    }
 }
 
-/* Ajustes responsives 600px */
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 700px) {
+    
     #inferior {
         display: block;
 
     }
+
 }
