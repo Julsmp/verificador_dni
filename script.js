@@ -100,7 +100,6 @@ function validar_Campos() { /* Comprueba si la información introducida en cada 
 
 function calcular_resto() {  /* Calcula el resto del dni */
     resto = numero_dni % 23 ;
-    console.log("El resto es:" + resto)
     comprobar_letra();
 }
 
@@ -229,15 +228,11 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 
 function añadir_letra_lista() {
     let letra_mayus = letra_dni.toUpperCase();
-    console.log(letra_dni);
     lista_letras.push(letra_mayus);
-    console.log(lista_letras);
 }
 
 function añadir_numeros_lista() {
-    console.log(numero_dni);
     lista_numeros.push(numero_dni);
-    console.log(lista_numeros);
 }
 
 /* --- FIN FUNCIONES ARRAY --- */
@@ -298,13 +293,7 @@ function ImprimirLISTA(){
 
     let texto_derecha=document.getElementById(id="elem1"); /*DIV*/
 
-    console.log("Texto_derecha es:"+'string:',texto_derecha); /*DIV*/
-    console.log("El nuevo_texto es:" + 'string:',nuevo_texto);
-
-        texto_total =  nuevo_texto + "" + texto_total;
-        console.log("El texto_total es:" + texto_total);
-        console.log("El nuevo_texto es:" + nuevo_texto);
-
+    texto_total =  nuevo_texto + "" + texto_total;
 
     if (valoracion=="Correcto"){
         nuevo_texto = "<p>"+numeracion + ". " + lista_numeros[contador] + lista_letras[contador] + "✓"+ "</p>";
@@ -317,12 +306,10 @@ function ImprimirLISTA(){
     }
 
     if (contador >= 1){
-        console.log(contador);
         contador++;
     }
 
     else {
-        console.log(contador);
         contador++;
     }
     nuevaLinea();
@@ -339,8 +326,6 @@ function nuevaLinea() {
 
     var nuevoelemento = texto_total;
     lista.innerHTML = lista.innerHTML + nuevoelemento;
-    console.log("El lista es:" + lista);
-    console.log("El nuevoelemento es:" + nuevoelemento);
 
 }
 
