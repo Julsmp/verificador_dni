@@ -1,6 +1,7 @@
 /* ---------------------------------- */
 /* By: Julia Martínez                 */
 /* Curso: Desarrollo Full-Stack (GR2) */
+/* Mejora: Recuadro derecho inferior  */
 /* ---------------------------------- */
 /* ---------------------------------- */
 
@@ -11,14 +12,12 @@
 var resto = 0;
 var letra_dni = undefined;
 var numero_dni = undefined;
-var numeros2="0123456789"; /* cadena con numeros y carácteres alfanumericos */
-var numeros=numeros2+letras3 /* añado " a la cadena */
-var letras2="ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ!@$%&/()<>?¿‚¡¨·";
 var letras3='"' /* para añadir el carácter " */
-var letras=letras2+letras3 /* añado " a la cadena */
-var valoracion="" /* Definirá correcto/no correcto*/
+var valoracion="" /* Definirá correcto/no correcto // comprobar_letra() y ImprimirResultado() */
 var contador=0;
-var letra_resto=""; 
+var letra_resto="";
+var lista_letras = []
+var lista_numeros = []
 
 
 /* ----- FIN VARIABLES GLOBALES ----- */
@@ -28,6 +27,8 @@ var letra_resto="";
 /* --- FUNCIONES PARA COMPROBAR CAMPOS --- */
 
 function tiene_numeros(texto){ /* Comprueba si tiene números o carácteres alfanúmericos */
+    let numeros2="0123456789"; /* cadena con numeros y carácteres alfanumericos */
+    let numeros=numeros2+letras3 /* añado " a la cadena */
 
    for(i=0; i<texto.length; i++){
         texto = texto.toUpperCase();
@@ -39,6 +40,9 @@ function tiene_numeros(texto){ /* Comprueba si tiene números o carácteres alfa
 }
 
 function tiene_letras(texto){ /* Comprueba si tiene letras o carácteres alfanúmericos */
+    let letras2="ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ!@$%&/()<>?¿‚¡¨·";
+    let letras=letras2+letras3 /* añado " a la cadena */
+    
     texto = texto.toUpperCase();
     for(i=0; i<texto.length; i++){
         if (letras.indexOf(texto.charAt(i),0)!=-1){
@@ -222,10 +226,6 @@ function comprobar_letra() { /* Según la relación entre números y letras, cal
 
 
 /* --- FUNCIONES ARRAY --- */
-//IN PROGRESS....
-//..
-var lista_letras = []
-var lista_numeros = []
 
 function añadir_letra_lista() {
     let letra_mayus = letra_dni.toUpperCase();
