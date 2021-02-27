@@ -123,6 +123,10 @@ u {
     color: #00c3f8
 }
 
+.CajaInferior{
+    min-height: 267.09px;
+}
+
 
 /* Ajustes responsives 600px */
 @media screen and (max-width: 650px) {
