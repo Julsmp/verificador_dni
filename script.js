@@ -252,15 +252,16 @@ function ImprimirResultado(){
     let texto=document.getElementById("Resultados")
     let letra_resultado=document.getElementById("letra_resultado")
 
+
     if (valoracion=="Correcto"){
         letra_resultado.style.color = "#007a08";
-        letra_resultado.innerHTML=letra_resto.toUpperCase();
+        letra_resultado.innerHTML="La letra " + letra_resto.toUpperCase() + "<br>es correcta";
     }
 
     else{
         letra_resultado.style.fontSize = "43px"
         letra_resultado.style.color = "#ff0000";
-        letra_resultado.innerHTML=letra_resto.toUpperCase();    
+        letra_resultado.innerHTML="La letra de este <br>DNI es: " + letra_resto.toUpperCase();    
     }
 
     if (valoracion=="Correcto"){
@@ -284,7 +285,7 @@ function ImprimirResultado(){
 
 
 
-/* --- FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
+/* --- ADICIONAL: FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
 
 var nuevo_texto = ""
 var texto_total = ""
@@ -341,9 +342,9 @@ function nuevaLinea() {
     console.log("El lista es:" + lista);
     console.log("El nuevoelemento es:" + nuevoelemento);
 
-  }
+}
 
-/* --- FIN FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
+/* --- ADICIONAL: FIN FUNCIONES IMPRIMIR EN SECCIÓN DERECHA (LISTA) --- */
 
 
 /* --- OTRAS FUNCIONES --- */
