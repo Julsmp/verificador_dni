@@ -1,7 +1,6 @@
 /* ---------------------------------- */
 /* By: Julia Martínez                 */
 /* Curso: Desarrollo Full-Stack (GR2) */
-/* Mejora: Recuadro derecho inferior  */
 /* ---------------------------------- */
 /* ---------------------------------- */
 
